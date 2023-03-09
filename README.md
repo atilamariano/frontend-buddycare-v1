@@ -1,4 +1,4 @@
-# Projeto BuddyCare - Acompanhamento de Tratamento do Paciente.
+# Projeto BuddyCare - Acompanhamento de Tratamento Psicológico.
 
 Este é um projeto criado para o bootcamp da empresa Buddy Care. 
 
