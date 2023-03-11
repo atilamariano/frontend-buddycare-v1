@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Home from "../pages/home/Home";
 import { PsicologosRegister } from "../pages/signupPsicologo/SignupPsicologo";
+import { Home } from "../pages/home/Home";
 
 export default function AppRoutes() {
   return (
