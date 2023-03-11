@@ -7,7 +7,7 @@ import {
   ModalContent,
   CloseButton,
 } from './styleHome';
-import ControlledCarousel from '../../components/carousel/Carousel';
+import NavBar from '../../components/navbar/Navbar';
 
 const backgroundImage = '/images/background-image.jpg';
 
@@ -50,6 +50,7 @@ export function Home() {
 
   return (
     <>
+    <NavBar />
       <Container style={{ backgroundImage: `url(${backgroundImage})` }}>
 
         <h1>Bem-vindo ao nosso site</h1>
@@ -99,7 +100,6 @@ export function Home() {
           </Modal>
         )}
       </Container>
-      <ControlledCarousel />
       </>
   );
 }
