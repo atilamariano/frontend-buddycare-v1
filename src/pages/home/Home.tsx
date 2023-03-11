@@ -8,6 +8,7 @@ import {
   CloseButton,
 } from './styleHome';
 import NavBar from '../../components/navbar/Navbar';
+import MyCarousel from '../../components/carousel/Carousel';
 
 const backgroundImage = '/images/background-image.jpg';
 
@@ -47,6 +48,24 @@ export function Home() {
         break;
     }
   };
+
+  const slides = [
+    {
+      title: "Slide 1",
+      caption: "Lorem ipsum dolor sit amet",
+      image: "https://picsum.photos/800/400?random=1",
+    },
+    {
+      title: "Slide 2",
+      caption: "Consectetur adipiscing elit",
+      image: "https://picsum.photos/800/400?random=2",
+    },
+    {
+      title: "Slide 3",
+      caption: "Sed do eiusmod tempor incididunt",
+      image: "https://picsum.photos/800/400?random=3",
+    },
+  ];
 
   return (
     <>
@@ -100,6 +119,8 @@ export function Home() {
           </Modal>
         )}
       </Container>
+
+      <MyCarousel slides={slides} />
       </>
   );
 }

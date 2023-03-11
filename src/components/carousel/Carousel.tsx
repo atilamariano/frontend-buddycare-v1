@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Carousel } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { StyledCarouselItem } from "./StayleCarousel";
 
 type Slide = {
   title: string;
@@ -22,13 +22,13 @@ const MyCarousel: React.FC<Props> = ({ slides }) => {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect} interval={5000}>
       {slides.map((slide, idx) => (
-        <Carousel.Item key={idx}>
-          <img className="d-block w-100" src={slide.image} alt={slide.title} />
+        <StyledCarouselItem key={idx}>
+          <img src={slide.image} alt={slide.title} />
           <Carousel.Caption>
             <h3>{slide.title}</h3>
             <p>{slide.caption}</p>
           </Carousel.Caption>
-        </Carousel.Item>
+        </StyledCarouselItem>
       ))}
     </Carousel>
   );
