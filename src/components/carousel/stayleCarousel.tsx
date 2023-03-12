@@ -1,33 +1,35 @@
-import styled from 'styled-components';
-import { Carousel } from 'react-bootstrap';
+import styled from "styled-components";
 
-const StyledCarousel = styled(Carousel)`
+export const StyledCarouselItem = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  background-color: #f5f5f5;
+
+  img {
+    height: 400px;
+    object-fit: cover;
+  }
+
   .carousel-caption {
     background-color: rgba(0, 0, 0, 0.5);
-    bottom: 0;
-    left: 0;
     padding: 20px;
+    border-radius: 10px;
     position: absolute;
-    right: 0;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    text-align: center;
 
     h3 {
-      color: #fff;
       font-size: 2rem;
       margin-bottom: 10px;
     }
 
     p {
-      color: #fff;
-      font-size: 1.5rem;
-      margin-bottom: 0;
+      font-size: 1.2rem;
     }
   }
-
-  img {
-    height: 400px;
-    object-fit: cover;
-    width: 100%;
-  }
 `;
-
-export default StyledCarousel;

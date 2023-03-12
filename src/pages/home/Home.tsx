@@ -6,11 +6,15 @@ import {
   Modal,
   ModalContent,
   CloseButton,
+  TextColor,
+  StyleH1,
+  StyleDivH1,
+  StyleDivText,
+  Body,
 } from './styleHome';
-import NavBar from '../../components/navbar/Navbar';
 import MyCarousel from '../../components/carousel/Carousel';
-
-const backgroundImage = '/images/background-image.jpg';
+import NavBar from '../../components/navbar/Navbar';
+import styled from 'styled-components';
 
 export function Home() {
   const [showModal1, setShowModal1] = useState(false);
@@ -69,58 +73,62 @@ export function Home() {
 
   return (
     <>
-    <NavBar />
-      <Container style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <Body>
+        <NavBar />
+        <StyleDivH1>
+          <StyleH1>Buddy Care</StyleH1>
+        </StyleDivH1>
+        
+        <StyleDivText>
+            <TextColor>
+              Acolhimento e cuidado para sua saúde mental. Contamos com profissionais altamente qualificados e oferecemos um atendimento personalizado com psicólogos especializados para cuidar da sua mente com dedicação e respeito. Cuide de você, cuide da sua saúde mental com Buddy Care.
+            </TextColor>
+          </StyleDivText>
+        <Container>
 
-        <h1>Bem-vindo ao nosso site</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac
-          consectetur eros. Nullam at tellus euismod, pharetra risus sit amet,
-          ultricies felis. Sed consequat eget augue a pulvinar.
-        </p>
+          <Card onClick={() => handleCardClick(1)}>
+            <h3>Card 1</h3>
+          </Card>
+          <Card onClick={() => handleCardClick(2)}>
+            <h3>Card 2</h3>
+          </Card>
+          <Card onClick={() => handleCardClick(3)}>
+            <h3>Card 3</h3>
+          </Card>
 
-        <Card onClick={() => handleCardClick(1)}>
-          <h3>Card 1</h3>
-        </Card>
-        <Card onClick={() => handleCardClick(2)}>
-          <h3>Card 2</h3>
-        </Card>
-        <Card onClick={() => handleCardClick(3)}>
-          <h3>Card 3</h3>
-        </Card>
+          {showModal1 && (
+            <Modal>
+              <ModalContent>
+                <CloseButton onClick={() => handleCloseModal(1)}>X</CloseButton>
+                <p>Modal 1 content</p>
+                <button onClick={() => handleCloseModal(1)}>Fechar</button>
+              </ModalContent>
+            </Modal>
+          )}
 
-        {showModal1 && (
-          <Modal>
-            <ModalContent>
-              <CloseButton onClick={() => handleCloseModal(1)}>X</CloseButton>
-              <p>Modal 1 content</p>
-              <button onClick={() => handleCloseModal(1)}>Fechar</button>
-            </ModalContent>
-          </Modal>
-        )}
+          {showModal2 && (
+            <Modal>
+              <ModalContent>
+                <CloseButton onClick={() => handleCloseModal(2)}>X</CloseButton>
+                <p>Modal 2 content</p>
+                <button onClick={() => handleCloseModal(2)}>Fechar</button>
+              </ModalContent>
+            </Modal>
+          )}
 
-        {showModal2 && (
-          <Modal>
-            <ModalContent>
-              <CloseButton onClick={() => handleCloseModal(2)}>X</CloseButton>
-              <p>Modal 2 content</p>
-              <button onClick={() => handleCloseModal(2)}>Fechar</button>
-            </ModalContent>
-          </Modal>
-        )}
+          {showModal3 && (
+            <Modal>
+              <ModalContent>
+                <CloseButton onClick={() => handleCloseModal(3)}>X</CloseButton>
+                <p>Modal 3 content</p>
+                <button onClick={() => handleCloseModal(3)}>Fechar</button>
+              </ModalContent>
+            </Modal>
+          )}
+        </Container>
 
-        {showModal3 && (
-          <Modal>
-            <ModalContent>
-              <CloseButton onClick={() => handleCloseModal(3)}>X</CloseButton>
-              <p>Modal 3 content</p>
-              <button onClick={() => handleCloseModal(3)}>Fechar</button>
-            </ModalContent>
-          </Modal>
-        )}
-      </Container>
-
-      <MyCarousel slides={slides} />
-      </>
+        {/* <MyCarousel slides={slides} /> */}
+      </Body>
+    </>
   );
 }

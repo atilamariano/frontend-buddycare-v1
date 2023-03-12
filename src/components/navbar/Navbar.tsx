@@ -1,33 +1,56 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { StyledDropdown, StyledDropdownToggle, StyledDropdownMenu, StyledDropdownItem, StyleNavbar, StyleLink } from './styleNavbar';
+import { useState } from 'react';
+import Icon from '../../assets/img/icon.png'
 
 function NavBar() {
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleDropdownToggle = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleDropdownClose = () => {
+    setDropdownOpen(false);
+  };
+
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="/">Buddy Care</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+    <>
+      <style type="text/css">
+        {`
+    .navbar-toggler {
+      background-color: rgba(0,0,0,0.0);
+      border: none;
+    }
+    `}
+
+      </style>
+      <Navbar bg="light" expand="lg">
+        <StyleNavbar>
+          <img src={Icon} width={25} alt="Ícone" />
+          <StyleLink href="/">Buddy Care</StyleLink>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="">Psicólogo</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <StyleLink href="/">Home</StyleLink>
+            <StyledDropdown show={dropdownOpen} onToggle={handleDropdownToggle}>
+              <StyledDropdownToggle className="navbar-toggler collapsed disabled" variant="success">
+                Loguin
+              </StyledDropdownToggle>
+              <StyledDropdownMenu>
+                <StyledDropdownItem onClick={handleDropdownClose}>Psicólogo</StyledDropdownItem>
+                <StyledDropdownItem onClick={handleDropdownClose}>Paciente</StyledDropdownItem>
+                <StyledDropdownItem onClick={handleDropdownClose}>Adminstrador</StyledDropdownItem>
+              </StyledDropdownMenu>
+            </StyledDropdown>
           </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+
+        </StyleNavbar>
+      </Navbar>
+    </>
   );
 }
 

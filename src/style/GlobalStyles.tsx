@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,5 +13,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 `;
-
 export default GlobalStyle;
+
+export const Body = styled.body`
+background-image: src("..");
+background-size: cover;
+background-repeat: no-repeat;
+`;

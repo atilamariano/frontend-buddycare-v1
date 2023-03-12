@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Carousel } from "react-bootstrap";
-import { StyledCarouselItem } from "./StayleCarousel";
+import { StyledCarouselItem } from "./stayleCarousel";
+
 
 type Slide = {
   title: string;

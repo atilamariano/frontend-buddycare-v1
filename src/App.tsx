@@ -4,9 +4,9 @@ import GlobalStyle from "./style/GlobalStyles";
 
 export function App() {
   return (
-      <BrowserRouter>
+    <BrowserRouter>
       <GlobalStyle />
-        <AppRoutes />
-      </BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
