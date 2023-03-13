@@ -4,18 +4,11 @@ import Imagem from '../../assets/img/background.jpg';
 export const Body = styled.body`
   position: relative;
   background-image: url(${Imagem});
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
-  @media (max-width: 768px) {
-    background-size: contain;
-  }
-  
-  @media (max-width: 576px) {
-    background-position: top;
-  }
+  background-attachment: fixed;
 `;
+
 
 export const ScrollableContainer = styled.div`
   overflow-y: scroll;
@@ -37,16 +30,18 @@ export const Container = styled(ScrollableContainer)` /* aplicando o ScrollableC
 `;
 
 export const Card = styled.div`
+  position: relative;
   width: 25%;
-  space-between: 10rem;
   height: 150px;
   border-radius: 20px;
-  background-color: #fff;
+  border: 1px solid #fff;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   margin: 30px;
+  background-color: rgba(0, 0, 0, 0.0);
+
 
   &:hover {
     transform: translateY(-5px);
@@ -54,9 +49,12 @@ export const Card = styled.div`
   }
 
   h3 {
+    color: #ffffff;
     margin: 0;
   }
 `;
+
+
 
 export const Modal = styled.div`
   display: flex;
@@ -79,9 +77,10 @@ export const ModalContent = styled.div`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 `;
 
+
 export const StyleDivH1 = styled.div`
   display: flex;
-  padding: 5rem 0 0 0;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
@@ -91,16 +90,38 @@ export const StyleDivH1 = styled.div`
   width: 100%;
 
   img {
+    padding: 7rem 0 0 0;
     display: block;
     margin: 0 auto;
     max-width: 100%;
     height: auto;
   }
 
+  h1 {
+    margin-top: 1rem;
+    text-align: center;
+    color: #ffffff;
+    font-size: 2rem;
+  }
+
   @media (max-width: 576px) {
     padding: 2rem 0 0 0;
   }
+};
+`
+
+export const StyleDivH2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-top: 2px solid #ffffff;
 `;
+
 
 export const TextContainer = styled.div`
   display: flex;
@@ -132,5 +153,12 @@ export const StyleH1 = styled.h1`
 color: #ffffff;
 text-shadow: 1px 1px 1px  black;
 `;
+
+export const StyledH2 = styled.h2`
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+`;
+
 
 

@@ -12,6 +12,8 @@ import {
   StyleDivH1,
   TextContainer, Text,
   Body,
+  StyledH2,
+  StyleDivH2,
 } from './styleHome';
 
 
@@ -56,25 +58,21 @@ export function Home() {
     <>
       <Body>
         <NavBar />
+
         <StyleDivH1>
           <img src={Logo} alt="Logo" />
+          <h1>Buddy Care - Cuidado emocional online ao seu alcance</h1>
         </StyleDivH1>
 
-        <TextContainer>
-          <Text>
-            <TextColor>
-              Acolhimento e cuidado para sua saúde mental. Contamos com profissionais altamente qualificados e oferecemos um atendimento personalizado com psicólogos especializados para cuidar da sua mente com dedicação e respeito. Cuide de você, cuide da sua saúde mental com Buddy Care.
-            </TextColor>
-          </Text>
-        </TextContainer>
-
-        <h2>
-          Porque Escolher
-        </h2>
+        <StyleDivH2>
+          <StyledH2>
+            Nossos Serviços
+          </StyledH2>
+        </StyleDivH2>
 
         <Container>
           <Card onClick={() => handleCardClick(1)}>
-            <h3>Card 1</h3>
+            <h3>Atendimento Psicológico Online</h3>
           </Card>
           <Card onClick={() => handleCardClick(2)}>
             <h3>Card 2</h3>
@@ -87,7 +85,7 @@ export function Home() {
             <Modal>
               <ModalContent>
                 <CloseButton onClick={() => handleCloseModal(1)}>X</CloseButton>
-                <p>Modal 1 content</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptas reiciendis autem obcaecati voluptate inventore natus doloremque sed numquam, necessitatibus officia incidunt facilis! Libero temporibus beatae harum error veritatis. Illum..</p>
                 <button onClick={() => handleCloseModal(1)}>Fechar</button>
               </ModalContent>
             </Modal>
@@ -97,7 +95,7 @@ export function Home() {
             <Modal>
               <ModalContent>
                 <CloseButton onClick={() => handleCloseModal(2)}>X</CloseButton>
-                <p>Modal 2 content</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi assumenda accusamus neque, cumque officia facere rem, corporis repudiandae, unde exercitationem explicabo magnam. Dolore, vitae. Eos neque magnam nihil sint aliquid!</p>
                 <button onClick={() => handleCloseModal(2)}>Fechar</button>
               </ModalContent>
             </Modal>
@@ -107,7 +105,7 @@ export function Home() {
             <Modal>
               <ModalContent>
                 <CloseButton onClick={() => handleCloseModal(3)}>X</CloseButton>
-                <p>Modal 3 content</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia repellat aliquid eius quos optio ut, atque sequi magni maiores? Provident dolorem eligendi sint dolores ea velit quia quidem voluptas modi.</p>
                 <button onClick={() => handleCloseModal(3)}>Fechar</button>
               </ModalContent>
             </Modal>
