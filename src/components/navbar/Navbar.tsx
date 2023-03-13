@@ -1,53 +1,78 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
+
 import Navbar from 'react-bootstrap/Navbar';
-import { StyledDropdown, StyledDropdownToggle, StyledDropdownMenu, StyledDropdownItem, StyleNavbar, StyleLink } from './styleNavbar';
-import { useState } from 'react';
-import Icon from '../../assets/img/icon.png'
+import { StyleNavbar, StyleLink, StyelMenu, StyleSpan } from './styleNavbar';
+import { useState, useRef, useEffect } from 'react';
+import { HiHome } from 'react-icons/hi';
+import Icon from '../../assets/img/icon.png';
+
+
+interface NavItem {
+  label: string;
+  url: string;
+}
+
+const navItems: NavItem[] = [
+  { label: "Psicólogo", url: "/login" },
+  { label: "Paciente", url: "/login" },
+  { label: "Admin", url: "/login" },
+];
+
+function renderNavItems(navItems: NavItem[], hideMenu: () => void) {
+  return navItems.map((item) => (
+    <li key={item.url}>
+      <StyleLink href={item.url} onClick={hideMenu}>
+        {item.label}
+      </StyleLink>
+    </li>
+  ));
+}
 
 function NavBar() {
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef<HTMLUListElement>(null);
 
-  const handleDropdownToggle = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
+  useEffect(() => {
+    function handleOutsideClick(event: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    }
 
-  const handleDropdownClose = () => {
-    setDropdownOpen(false);
-  };
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isMenuOpen]);
+
+  function toggleMenu() {
+    setIsMenuOpen((prev) => !prev);
+  }
+
+  function hideMenu() {
+    setIsMenuOpen(false);
+  }
 
   return (
     <>
-      <style type="text/css">
-        {`
-    .navbar-toggler {
-      background-color: rgba(0,0,0,0.0);
-      border: none;
-    }
-    `}
-
-      </style>
       <Navbar bg="light" expand="lg">
-        <StyleNavbar>
-          <img src={Icon} width={25} alt="Ícone" />
-          <StyleLink href="/">Buddy Care</StyleLink>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-          <Nav className="me-auto">
-            <StyleLink href="/">Home</StyleLink>
-            <StyledDropdown show={dropdownOpen} onToggle={handleDropdownToggle}>
-              <StyledDropdownToggle className="navbar-toggler collapsed disabled" variant="success">
-                Loguin
-              </StyledDropdownToggle>
-              <StyledDropdownMenu>
-                <StyledDropdownItem onClick={handleDropdownClose}>Psicólogo</StyledDropdownItem>
-                <StyledDropdownItem onClick={handleDropdownClose}>Paciente</StyledDropdownItem>
-                <StyledDropdownItem onClick={handleDropdownClose}>Adminstrador</StyledDropdownItem>
-              </StyledDropdownMenu>
-            </StyledDropdown>
-          </Nav>
-
+        <StyleNavbar style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "1.4rem" }}>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <img src={Icon} width={25} alt="Ícone" />
+            <StyleLink href="/">Buddy Care</StyleLink>
+          </div>
+          <StyleLink href="/" style={{ textAlign: "center", padding: "0 0 0 5rem " }}> <HiHome /> Home</StyleLink>
+          <StyelMenu className="me-auto">
+            <text onClick={toggleMenu}>
+              <StyleSpan>Login</StyleSpan>
+            </text>
+            {isMenuOpen && (
+              <ul ref={navRef} style={{ position: 'absolute' }}>{renderNavItems(navItems, hideMenu)}</ul>
+            )}
+          </StyelMenu>
         </StyleNavbar>
       </Navbar>
     </>

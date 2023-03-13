@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import Logo from '../../assets/img/logo.png';
+import NavBar from '../../components/navbar/Navbar';
 import {
   Container,
   Card,
@@ -9,12 +10,10 @@ import {
   TextColor,
   StyleH1,
   StyleDivH1,
-  StyleDivText,
+  TextContainer, Text,
   Body,
 } from './styleHome';
-import MyCarousel from '../../components/carousel/Carousel';
-import NavBar from '../../components/navbar/Navbar';
-import styled from 'styled-components';
+
 
 export function Home() {
   const [showModal1, setShowModal1] = useState(false);
@@ -53,39 +52,27 @@ export function Home() {
     }
   };
 
-  const slides = [
-    {
-      title: "Slide 1",
-      caption: "Lorem ipsum dolor sit amet",
-      image: "https://picsum.photos/800/400?random=1",
-    },
-    {
-      title: "Slide 2",
-      caption: "Consectetur adipiscing elit",
-      image: "https://picsum.photos/800/400?random=2",
-    },
-    {
-      title: "Slide 3",
-      caption: "Sed do eiusmod tempor incididunt",
-      image: "https://picsum.photos/800/400?random=3",
-    },
-  ];
-
   return (
     <>
       <Body>
         <NavBar />
         <StyleDivH1>
-          <StyleH1>Buddy Care</StyleH1>
+          <img src={Logo} alt="Logo" />
         </StyleDivH1>
-        
-        <StyleDivText>
+
+        <TextContainer>
+          <Text>
             <TextColor>
               Acolhimento e cuidado para sua saúde mental. Contamos com profissionais altamente qualificados e oferecemos um atendimento personalizado com psicólogos especializados para cuidar da sua mente com dedicação e respeito. Cuide de você, cuide da sua saúde mental com Buddy Care.
             </TextColor>
-          </StyleDivText>
-        <Container>
+          </Text>
+        </TextContainer>
 
+        <h2>
+          Porque Escolher
+        </h2>
+
+        <Container>
           <Card onClick={() => handleCardClick(1)}>
             <h3>Card 1</h3>
           </Card>
@@ -126,8 +113,6 @@ export function Home() {
             </Modal>
           )}
         </Container>
-
-        {/* <MyCarousel slides={slides} /> */}
       </Body>
     </>
   );

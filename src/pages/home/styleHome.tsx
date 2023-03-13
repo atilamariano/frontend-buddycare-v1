@@ -1,28 +1,36 @@
 import styled from 'styled-components';
-import Imagem from '../../assets/img/background.jpg'
+import Imagem from '../../assets/img/background.jpg';
 
 export const Body = styled.body`
-position: fixed;
-top: 0;
-left: 0;
-background-image: url(${Imagem});
-background-size: cover;
-background-position: center;
+  position: relative;
+  background-image: url(${Imagem});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
-&::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.5;
-  z-index: -1;
-}
+  @media (max-width: 768px) {
+    background-size: contain;
+  }
+  
+  @media (max-width: 576px) {
+    background-position: top;
+  }
 `;
 
-export const Container = styled.div`
+export const ScrollableContainer = styled.div`
+  overflow-y: scroll;
+  height: 100%;
+  padding-right: 15px; /* compensates for scrollbar width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 5px;
+  }
+`;
+
+export const Container = styled(ScrollableContainer)` /* aplicando o ScrollableContainer no Container */
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -39,7 +47,7 @@ export const Card = styled.div`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   margin: 30px;
-  
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
@@ -72,27 +80,40 @@ export const ModalContent = styled.div`
 `;
 
 export const StyleDivH1 = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 2rem;
-z-index: 999;
-top: 0;
-left: 0;
-width: 100%;
+  display: flex;
+  padding: 5rem 0 0 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 576px) {
+    padding: 2rem 0 0 0;
+  }
 `;
 
-export const StyleDivText = styled.div`
-padding: 0rem 5rem 0rem 5rem;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 1rem;
-z-index: 999;
-top: 0;
-left: 0;
-width: 100%;
-`
+export const TextContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Text = styled.p`
+  text-align: center; /* centraliza o texto */
+  font-size: 1rem; /* tamanho da fonte */
+  line-height: 1.5; /* altura das linhas */
+  max-width: 800px; /* largura máxima do texto */
+`;
 
 export const CloseButton = styled.span`
   position: absolute;
@@ -102,8 +123,6 @@ export const CloseButton = styled.span`
   cursor: pointer;
 `;
 
-
-
 export const TextColor = styled.p`
 color: #ffffff;
 text-shadow: 1px 1px 1px black;
@@ -112,5 +131,6 @@ text-shadow: 1px 1px 1px black;
 export const StyleH1 = styled.h1`
 color: #ffffff;
 text-shadow: 1px 1px 1px  black;
-`
+`;
+
 
