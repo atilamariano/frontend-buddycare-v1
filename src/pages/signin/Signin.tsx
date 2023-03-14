@@ -14,8 +14,12 @@ import imgLogo from "../../assets/img/icon.png";
 import { useNavigate } from "react-router-dom";
 import { ISignin } from "../../interfaces/ISignin";
 import { signinService } from "../../service/authentcation/signinAuth";
+import NavBar from "../../components/navbar/Navbar";
 
 export const Signin = () => {
+
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
@@ -62,6 +66,8 @@ export const Signin = () => {
   };
 
   return (
+    <>
+    <NavBar isUserLoggedIn={isUserLoggedIn} />
     <SigninContainer>
       <SigninForm onSubmit={handleSignin}>
         <SigninImg src={imgLogo} />
@@ -93,5 +99,6 @@ export const Signin = () => {
         </AccountTitleSignin>
       </SigninForm>
     </SigninContainer>
+    </>
   );
 };

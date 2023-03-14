@@ -10,7 +10,7 @@ interface NavItem {
   url: string;
 }
 const navItems: NavItem[] = [
-  { label: "Psicólogo", url: "/psicologos" },
+  { label: "Psicólogo", url: "/signin" },
   { label: "Paciente", url: "/login" },
   { label: "Admin", url: "/login" },
 ];

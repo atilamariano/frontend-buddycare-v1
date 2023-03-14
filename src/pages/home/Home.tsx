@@ -7,20 +7,18 @@ import {
   Modal,
   ModalContent,
   CloseButton,
-  TextColor,
-  StyleH1,
   StyleDivH1,
-  TextContainer, Text,
   Body,
   StyledH2,
   StyleDivH2,
 } from './styleHome';
 
-
 export function Home() {
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
   const [showModal3, setShowModal3] = useState(false);
+
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const handleCardClick = (index: number) => {
     switch (index) {
@@ -57,7 +55,7 @@ export function Home() {
   return (
     <>
       <Body>
-        <NavBar />
+        <NavBar isUserLoggedIn={isUserLoggedIn} />
 
         <StyleDivH1>
           <img src={Logo} alt="Logo" />
