@@ -36,8 +36,18 @@ color: #bebebe;
 text-shadow: 1px 1px 1px #000000;
 cursor: pointer;
 transition: all 0.1s ease-in-out;
+background-color: rgba(0, 0, 0, 0.0);
 
 &:hover {
     color: #ffffff;
   }
+`;
+
+export const StyleButton = styled.button`
+border: none;
+font-size: 1.4rem;
+text-shadow: 1px 1px 1px #000000;
+cursor: pointer;
+transition: all 0.1s ease-in-out;
+background-color: rgba(0, 0, 0, 0.0);
 `;
