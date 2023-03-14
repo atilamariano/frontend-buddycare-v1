@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const Api = axios.create({
-  // baseURL: 'http://localhost:3333/'
-  baseURL: "https://buddycare-api.onrender.com",
+  baseURL: 'http://localhost:3333/'
+  // baseURL: "https://buddycare-api.onrender.com",
 });
 
 Api.interceptors.request.use((config: any) => {
