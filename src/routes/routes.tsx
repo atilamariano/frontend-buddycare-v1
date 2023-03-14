@@ -7,7 +7,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/psicologos" element={<PsicologosRegister />} />
+      <Route path="/signup" element={<PsicologosRegister />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/patientProfile" element={<PatientProfile />} />
       <Route path="*" element={<Navigate to="/" replace />} />
