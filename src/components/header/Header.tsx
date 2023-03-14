@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {
   AddTouristSpot,
   Contacts,
@@ -7,11 +8,18 @@ import {
 } from "../header/styleHeader";
 
 export const Header = () => {
+
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/home');
+  }
+
   return (
     <HeaderContainer>
       <LogoContainer />
       <Menu>
-        <AddTouristSpot onClick={() => {}}>HOME</AddTouristSpot>
+        <AddTouristSpot onClick={handleClick}>HOME</AddTouristSpot>
         <Contacts onClick={() => {}}>CADASTRE-SE</Contacts>
         <Contacts onClick={() => {}}>ENTRAR</Contacts>
         <Contacts onClick={() => {}}>CHAT</Contacts>

@@ -12,7 +12,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Psicólogo", url: "/login" },
+  { label: "Psicólogo", url: "/psicologos" },
   { label: "Paciente", url: "/login" },
   { label: "Admin", url: "/login" },
 ];
