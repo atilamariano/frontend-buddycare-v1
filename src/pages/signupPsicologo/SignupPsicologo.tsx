@@ -63,6 +63,7 @@ export const PsicologosRegister = () => {
       icon: "success",
       timer: 6000,
     });
+    navigate("/signin");
   };
 
   return (
