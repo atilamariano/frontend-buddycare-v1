@@ -72,7 +72,7 @@ export const Signin = () => {
       <SigninForm onSubmit={handleSignin}>
         <SigninHome src={home} onClick={() => navigate("/")} />
         <SigninImg src={imgLogo} />
-        <TitleSignin>Acesse o Baddy Care</TitleSignin>
+        <TitleSignin>Acesse o Buddy Care</TitleSignin>
         <SubTitleSignin>Informe seus dados e acesse sua conta:</SubTitleSignin>
 
         <SigninInput
