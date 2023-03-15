@@ -60,9 +60,9 @@ export const Signin = () => {
         timer: 3000,
       });
       if (values.type === "psicologo") {
-        navigate("/psicologo");
+        navigate("/psychologistprofile");
       } else {
-        navigate("/paciente");
+        navigate("/patientProfile");
       }
     }
   };
