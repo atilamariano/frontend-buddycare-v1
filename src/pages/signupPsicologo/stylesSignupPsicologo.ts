@@ -77,7 +77,7 @@ export const SingupInput = styled.input`
   display: flex;
   width: 80%;
   height: 35px;
-  border: 1px solid rgb(150, 150, 150);
+  border: none;
   outline: none;
   margin: 5px;
   padding-left: 10px;
