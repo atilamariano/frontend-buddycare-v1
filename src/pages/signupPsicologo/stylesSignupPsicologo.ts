@@ -7,29 +7,36 @@ export const SignupImg = styled.img`
   align-items: center;
 `;
 
+export const SignupHome = styled.img`
+  width: 7%;
+  position: absolute;
+  top: 20px;
+  left: 35px;
+  cursor: pointer;
+`;
+
 export const SingupContainer = styled.div`
-  display: flex;
+  width: 100%;
   height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 `;
 
 export const TitleRegister = styled.h2`
+  margin: 0;
   text-align: center;
-  padding-top: 20px;
   color: rgb(230, 230, 230);
 `;
 
 export const SubTitleSignup = styled.p`
   text-align: center;
-  padding-top: 10px;
   color: rgb(230, 230, 230);
 `;
 
 export const SigninTitleSignup = styled.p`
+  margin: 0;
   text-align: center;
-  padding-top: 10px;
   color: rgb(230, 230, 230);
   cursor: pointer;
 `;
@@ -44,14 +51,24 @@ export const SingupForm = styled.form`
     rgba(77, 77, 77, 1) 78%,
     rgba(0, 0, 0, 1) 100%
   );
-  width: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   display: flex;
-  flex-direction: column;
+  width: 30%;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  flex-direction: column;
+  padding: 15px 0  15px 0;
 
-  @media (max-width: 720px) {
+  @media (max-width: 960px) {
+    width: 50%;
+  }
+
+  @media (max-width: 570px) {
     width: 80%;
   }
 `;
@@ -59,7 +76,7 @@ export const SingupForm = styled.form`
 export const SingupInput = styled.input`
   display: flex;
   width: 80%;
-  height: 40px;
+  height: 35px;
   border: 1px solid rgb(150, 150, 150);
   outline: none;
   margin: 5px;
@@ -82,7 +99,7 @@ export const SingupButton = styled.button`
   padding: 10px;
   margin: 5px;
   width: 50%;
-  height: 40px;
+  height: 35px;
   cursor: pointer;
   transition: all 0.8s ease-out;
 `;

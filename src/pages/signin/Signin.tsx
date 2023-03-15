@@ -9,17 +9,15 @@ import {
   TitleSignin,
   SubTitleSignin,
   AccountTitleSignin,
+  SigninHome,
 } from "./styleSignin";
 import imgLogo from "../../assets/img/icon.png";
+import home from "../../assets/img/home.png";
 import { useNavigate } from "react-router-dom";
 import { ISignin } from "../../interfaces/ISignin";
 import { signinService } from "../../service/authentcation/signinAuth";
-import NavBar from "../../components/navbar/Navbar";
 
 export const Signin = () => {
-
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
@@ -66,10 +64,9 @@ export const Signin = () => {
   };
 
   return (
-    <>
-    <NavBar isUserLoggedIn={isUserLoggedIn} />
     <SigninContainer>
       <SigninForm onSubmit={handleSignin}>
+        <SigninHome src={home} onClick={() => navigate("/")} />
         <SigninImg src={imgLogo} />
         <TitleSignin>Acesse o Baddy Care</TitleSignin>
         <SubTitleSignin>Informe seus dados e acesse sua conta:</SubTitleSignin>
@@ -99,6 +96,5 @@ export const Signin = () => {
         </AccountTitleSignin>
       </SigninForm>
     </SigninContainer>
-    </>
   );
 };

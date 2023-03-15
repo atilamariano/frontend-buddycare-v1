@@ -4,6 +4,7 @@ import { RegisterService } from "../../service/authentcation/signupAuth";
 import swal from "sweetalert";
 import {
   SigninTitleSignup,
+  SignupHome,
   SignupImg,
   SingupButton,
   SingupContainer,
@@ -12,9 +13,8 @@ import {
   SubTitleSignup,
   TitleRegister,
 } from "./stylesSignupPsicologo";
-import { Header } from "../../components/header/Header";
-import { Footer } from "../../components/footer/Footer";
 import imgLogo from "../../assets/img/icon.png";
+import home from "../../assets/img/home.png";
 import { useNavigate } from "react-router-dom";
 
 export const PsicologosRegister = () => {
@@ -66,50 +66,47 @@ export const PsicologosRegister = () => {
   };
 
   return (
-    <>
-      {/* <Header /> */}
-      <SingupContainer>
-        <SingupForm onSubmit={handleRegisterUser}>
-          <SignupImg src={imgLogo} />
-          <TitleRegister>Bem-vindo ao Buddy Care</TitleRegister>
-          <SubTitleSignup>
-            Experimente gratuitamente nossa plataforma.
-          </SubTitleSignup>
-          <SingupInput
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Digite seu nome"
-            required
-            onChange={handleChangesValues}
-          />
+    <SingupContainer>
+      <SingupForm onSubmit={handleRegisterUser}>
+        <SignupHome src={home} onClick={() => navigate("/")} />
+        <SignupImg src={imgLogo} />
+        <TitleRegister>Bem-vindo ao Buddy Care</TitleRegister>
+        <SubTitleSignup>
+          Experimente gratuitamente nossa plataforma.
+        </SubTitleSignup>
+        <SingupInput
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Digite seu nome"
+          required
+          onChange={handleChangesValues}
+        />
 
-          <SingupInput
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Digite seu melhor e-mail"
-            required
-            onChange={handleChangesValues}
-          />
+        <SingupInput
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Digite seu melhor e-mail"
+          required
+          onChange={handleChangesValues}
+        />
 
-          <SingupInput
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Digite uma senha"
-            required
-            onChange={handleChangesValues}
-          />
+        <SingupInput
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Digite uma senha"
+          required
+          onChange={handleChangesValues}
+        />
 
-          <SingupButton type="submit">Salvar</SingupButton>
-          <SubTitleSignup>Já possui uma conta?</SubTitleSignup>
-          <SigninTitleSignup onClick={() => navigate("/signin")}>
-            Acesse sua conta!
-          </SigninTitleSignup>
-        </SingupForm>
-      </SingupContainer>
-      {/* <Footer /> */}
-    </>
+        <SingupButton type="submit">Salvar</SingupButton>
+        <SubTitleSignup>Já possui uma conta?</SubTitleSignup>
+        <SigninTitleSignup onClick={() => navigate("/signin")}>
+          Acesse sua conta!
+        </SigninTitleSignup>
+      </SingupForm>
+    </SingupContainer>
   );
 };
