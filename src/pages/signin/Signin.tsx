@@ -49,7 +49,6 @@ export const Signin = () => {
 
     const jwt = response.data.token;
     const type = response.data.type;
-    console.log(jwt);
 
     if (jwt) {
       localStorage.setItem("jwt", jwt);
@@ -59,7 +58,11 @@ export const Signin = () => {
         icon: "success",
         timer: 3000,
       });
-      navigate("/principal");
+      if (values.type === "psicologo") {
+        navigate("/psicologo");
+      } else {
+        navigate("/paciente");
+      }
     }
   };
 
