@@ -74,7 +74,7 @@ function NavBar({ isUserLoggedIn }: { isUserLoggedIn: boolean }) {
   return (
     <>
       <Navbar bg="light" expand="lg">
-        <StyleNavbar style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "1.4rem" }}>
+        <StyleNavbar style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "1.2rem" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <img src={Icon} width={25} alt="Ícone" />
             <StyleLink href="/">Buddy Care</StyleLink>
@@ -105,7 +105,7 @@ function NavBar({ isUserLoggedIn }: { isUserLoggedIn: boolean }) {
                       <StyleLink href="/">Perfil</StyleLink>
                     </li>
                     <li>
-                      <StyleLink href="/">Mensagens</StyleLink>
+                      <StyleLink href="/">Configurações</StyleLink>
                     </li>
                     <li>
                       <StyleLink href="/">Sair</StyleLink>
