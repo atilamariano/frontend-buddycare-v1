@@ -50,7 +50,6 @@ export const Signin = () => {
 
     const jwt = response.data.token;
     const type = response.data.type;
-    console.log(jwt);
 
     if (jwt) {
       localStorage.setItem("jwt", jwt);
@@ -60,7 +59,11 @@ export const Signin = () => {
         icon: "success",
         timer: 3000,
       });
-      navigate("/principal");
+      if (values.type === "psicologo") {
+        navigate("/psychologistprofile");
+      } else {
+        navigate("/patientProfile");
+      }
     }
   };
 
@@ -69,7 +72,7 @@ export const Signin = () => {
       <SigninForm onSubmit={handleSignin}>
         <SigninHome src={home} onClick={() => navigate("/")} />
         <SigninImg src={imgLogo} />
-        <TitleSignin>Acesse o Baddy Care</TitleSignin>
+        <TitleSignin>Acesse o Buddy Care</TitleSignin>
         <SubTitleSignin>Informe seus dados e acesse sua conta:</SubTitleSignin>
 
         <SigninInput
