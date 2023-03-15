@@ -1,7 +1,7 @@
 import Navbar from 'react-bootstrap/Navbar';
 import { StyleNavbar, StyleLink, StyelMenu, StyleSpan, StyleButton } from './styleNavbar';
 import { useState, useRef, useEffect } from 'react';
-import { HiHome } from 'react-icons/hi';
+import { ImHome } from 'react-icons/im';
 import Icon from '../../assets/img/icon.png';
 
 // Define os itens de navegação da barra
@@ -79,7 +79,7 @@ function NavBar({ isUserLoggedIn }: { isUserLoggedIn: boolean }) {
             <img src={Icon} width={25} alt="Ícone" />
             <StyleLink href="/">Buddy Care</StyleLink>
           </div>
-          <StyleLink href="/" style={{ textAlign: "center", padding: "0 0 0 5rem " }}> <HiHome /> Home</StyleLink>
+          <StyleLink href="/" style={{ textAlign: "center", padding: "0 0 0 5rem " }}> <ImHome /> Home</StyleLink>
           <StyelMenu className="me-auto">
             {/* Se o usuário estiver logado, exibe botões para configurações e logout */}
             {/* Se o usuário não estiver logado, exibe um botão para login */}
