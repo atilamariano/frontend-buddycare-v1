@@ -1,4 +1,3 @@
-import Dropdown from 'react-bootstrap/esm/Dropdown';
 import styled from 'styled-components';
 
 export const StyleNavbar = styled.nav`
@@ -18,13 +17,14 @@ export const StyelMenu = styled.nav`
 top: 100%;
 left: 0;
 min-width: 150px;
-padding: 20px;
+padding: 10px;
 `;
 
 export const StyleLink = styled.a`
 color: #bebebe;
 text-shadow: 1px 1px 1px #000000;
 transition: all 0.1s ease-in-out;
+font-size: 1.2rem;
 
 &:hover {
     color: #ffffff;
@@ -45,7 +45,7 @@ background-color: rgba(0, 0, 0, 0.0);
 
 export const StyleButton = styled.button`
 border: none;
-font-size: 1.4rem;
+font-size: 1.2rem;
 text-shadow: 1px 1px 1px #000000;
 cursor: pointer;
 transition: all 0.1s ease-in-out;
