@@ -16,6 +16,24 @@ export const SigninHome = styled.img`
   cursor: pointer;
 `;
 
+export const SigninSelect = styled.select`
+  display: flex;
+  width: 83%;
+  height: 37px;
+  border: none;
+  outline: none;
+  margin: 5px;
+  padding-left: 10px;
+  color: rgb(150, 150, 150);
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+`;
+
+export const SigninOption = styled.option`
+  font-size: 16px;
+`;
+
 export const SigninContainer = styled.div`
   width: 100%;
   height: 100vh;
@@ -63,7 +81,7 @@ export const SigninForm = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 15px 0  15px 0;
+  padding: 15px 0 15px 0;
 
   @media (max-width: 960px) {
     width: 50%;
@@ -83,6 +101,7 @@ export const SigninInput = styled.input`
   margin: 5px;
   padding-left: 10px;
   font-size: 14px;
+  text-align: center;
   box-shadow: 0 0 0px 1000px white inset;
 `;
 
