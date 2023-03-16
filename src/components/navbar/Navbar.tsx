@@ -12,7 +12,6 @@ interface NavItem {
 const navItems: NavItem[] = [
   { label: "Psicólogo", url: "/signin" },
   { label: "Paciente", url: "/login" },
-  { label: "Admin", url: "/login" },
 ];
 
 // Função que renderiza os itens de navegação
