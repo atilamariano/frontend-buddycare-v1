@@ -10,6 +10,8 @@ import {
   SubTitleSignin,
   AccountTitleSignin,
   SigninHome,
+  SigninSelect,
+  SigninOption,
 } from "./styleSignin";
 import imgLogo from "../../assets/img/icon.png";
 import home from "../../assets/img/home.png";
@@ -17,17 +19,20 @@ import { useNavigate } from "react-router-dom";
 import { ISignin } from "../../interfaces/ISignin";
 import { signinService } from "../../service/authentcation/signinAuth";
 
-
 export const Signin = () => {
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
     credential: "",
     password: "",
-    type: "psicologo",
+    type: "",
   });
 
-  const handleChangesValues = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangesValues = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
     setValues((values: ISignin) => ({
       ...values,
       [e.target.name]: e.target.value,
@@ -92,6 +97,12 @@ export const Signin = () => {
           required
           onChange={handleChangesValues}
         />
+
+        <SigninSelect name="type" id="type" onChange={handleChangesValues}>
+          <SigninOption>Selecione o tipo Usuário</SigninOption>
+          <SigninOption value="psicologo">Psicológo</SigninOption>
+          <SigninOption value="paciente">Paciente</SigninOption>
+        </SigninSelect>
 
         <SigninButton type="submit">Entrar</SigninButton>
         <SubTitleSignin>Não possui uma conta?</SubTitleSignin>
