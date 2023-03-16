@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Logo from '../../assets/img/logo.png';
+import Card1 from '../../assets/img/card1.png';
+import Card2 from '../../assets/img/card2.png';
+import Card3 from '../../assets/img/card3.png';
 import NavBar from '../../components/navbar/Navbar';
 import {
   Container,
@@ -69,14 +72,14 @@ export function Home() {
         </StyleDivH2>
 
         <Container>
-          <Card onClick={() => handleCardClick(1)}>
+          <Card onClick={() => handleCardClick(1)} style={{backgroundImage: `url(${Card1})`, backgroundSize: 'cover'}}>
             <h3>Atendimento Psicológico Online</h3>
           </Card>
-          <Card onClick={() => handleCardClick(2)}>
-            <h3>Card 2</h3>
+          <Card onClick={() => handleCardClick(2)} style={{backgroundImage: `url(${Card2})`, backgroundSize: 'cover'}}>
+            <h3>Proficinais de Alta Qualidade</h3>
           </Card>
-          <Card onClick={() => handleCardClick(3)}>
-            <h3>Card 3</h3>
+          <Card onClick={() => handleCardClick(3)} style={{backgroundImage: `url(${Card3})`, backgroundSize: 'cover'}}>
+            <h3>Atendimento de Qualidade que Cabe no Seu Bolso</h3>
           </Card>
 
           {showModal1 && (

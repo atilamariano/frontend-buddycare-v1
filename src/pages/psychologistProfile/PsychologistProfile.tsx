@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import NavBar from '../../components/navbar/Navbar'
 
 function PsychologistProfile() {
+
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+
   return (
-    <div>PsychologistProfile</div>
+    <>
+    <NavBar isUserLoggedIn={isUserLoggedIn} />
+    </>
   )
 }
 

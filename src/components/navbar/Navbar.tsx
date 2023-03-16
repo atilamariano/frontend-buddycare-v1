@@ -32,9 +32,9 @@ function handleLogout() {
 }
 
 function setIsLoggedIn(isLoggedIn: boolean) {
-    // Armazena o valor de isLoggedIn no localStorage com a chave 'isLoggedIn'
+  // Armazena o valor de isLoggedIn no localStorage com a chave 'isLoggedIn'
   localStorage.setItem('isLoggedIn', String(isLoggedIn));
-    // Define o estado de loggedIn como o valor de isLoggedIn
+  // Define o estado de loggedIn como o valor de isLoggedIn
   setIsLoggedIn(isLoggedIn);
 }
 
@@ -80,8 +80,8 @@ function NavBar({ isUserLoggedIn }: { isUserLoggedIn: boolean }) {
           </div>
           <StyleLink href="/" style={{ textAlign: "center", padding: "0 0 0 5rem " }}> <ImHome /> Home</StyleLink>
           <StyelMenu className="me-auto">
-            {/* Se o usuário estiver logado, exibe botões para configurações e logout */}
-            {/* Se o usuário não estiver logado, exibe um botão para login */}
+            {/* Se o usuário estiver logado, exibe botões para configurações e logout /}
+{/ Se o usuário não estiver logado, exibe um botão para login */}
             {!isUserLoggedIn ?
               <StyleButton onClick={toggleMenu}>
                 <StyleSpan>Login</StyleSpan>

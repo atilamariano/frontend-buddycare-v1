@@ -40,7 +40,7 @@ export const Card = styled.div`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   margin: 30px;
-  background-color: rgba(0, 0, 0, 0.0);
+  text-shadow: 1px 1px 1px  black;
 
 
   &:hover {
@@ -54,8 +54,6 @@ export const Card = styled.div`
   }
 `;
 
-
-
 export const Modal = styled.div`
   display: flex;
   justify-content: center;
@@ -67,6 +65,21 @@ export const Modal = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+
+  button {
+    border-radius: 4px;
+    background-color: #FA8072;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px  black;
+    border-color: rgba(0, 0, 0, 0.0);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
 `;
 
 export const ModalContent = styled.div`
