@@ -30,6 +30,9 @@ export const Container = styled(ScrollableContainer)` /* aplicando o ScrollableC
 `;
 
 export const Card = styled.div`
+  max-width: 100%;
+  padding: 2em;
+  text-align: center;
   position: relative;
   width: 25%;
   height: 150px;
@@ -50,7 +53,15 @@ export const Card = styled.div`
 
   h3 {
     color: #ffffff;
-    margin: 0;
+    max-width: 20em;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    line-height: 1.2;
+    word-wrap: break-word;
+  }
+
+  @media screen and (max-height: 610px) {
+    height: 100%;
   }
 `;
 

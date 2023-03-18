@@ -3,6 +3,8 @@ import { StyleNavbar, StyleLink, StyelMenu, StyleSpan, StyleButton } from './sty
 import { useState, useRef, useEffect } from 'react';
 import { ImHome } from 'react-icons/im';
 import Icon from '../../assets/img/icon.png';
+import Avatar from '@mui/material/Avatar';
+import Avat from '../../assets/img/avatar.png'
 
 // Define os itens de navegação da barra
 interface NavItem {
@@ -26,20 +28,11 @@ function renderNavItems(navItems: NavItem[], hideMenu: () => void) {
 }
 
 function handleLogout() {
-  // aqui você pode adicionar a lógica para fazer o logout do usuário, como apagar o token do localStorage, por exemplo
-  localStorage.removeItem("token"); // remove o token do localStorage
-  setIsLoggedIn(false); // atualiza o estado isLoggedIn para false
+  localStorage.removeItem("tokem"); // remove the token from localStorage
+  setIsLoggedIn(false); // update the isLoggedIn state to false
 }
 
-function setIsLoggedIn(isLoggedIn: boolean) {
-  // Armazena o valor de isLoggedIn no localStorage com a chave 'isLoggedIn'
-  localStorage.setItem('isLoggedIn', String(isLoggedIn));
-  // Define o estado de loggedIn como o valor de isLoggedIn
-  setIsLoggedIn(isLoggedIn);
-}
-
-
-function NavBar({ isUserLoggedIn }: { isUserLoggedIn: boolean }) {
+function NavBar({ isLoggedIn, setIsLoggedIn }: { isLoggedIn: boolean, setIsLoggedIn: (isLoggedIn: boolean) => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Define estado do menu aberto/fechado
   const navRef = useRef<HTMLUListElement>(null); // Referência para o elemento UL da navegação
 
@@ -70,6 +63,11 @@ function NavBar({ isUserLoggedIn }: { isUserLoggedIn: boolean }) {
     setIsMenuOpen(false);
   }
 
+  function handleLogout() {
+    localStorage.removeItem("jwt"); // remove the token from localStorage
+    setIsLoggedIn(false); // update the isUserLoggedIn state to false
+  }
+
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -80,25 +78,22 @@ function NavBar({ isUserLoggedIn }: { isUserLoggedIn: boolean }) {
           </div>
           <StyleLink href="/" style={{ textAlign: "center", padding: "0 0 0 5rem " }}> <ImHome /> Home</StyleLink>
           <StyelMenu className="me-auto">
-            {/* Se o usuário estiver logado, exibe botões para configurações e logout /}
-{/ Se o usuário não estiver logado, exibe um botão para login */}
-            {!isUserLoggedIn ?
+            {/* Se o usuário estiver logado, exibe botões para configurações e logout */}
+            {/* Se o usuário não estiver logado, exibe um botão para login */}
+            {!isLoggedIn ?
               <StyleButton onClick={toggleMenu}>
                 <StyleSpan>Login</StyleSpan>
               </StyleButton>
               :
               <>
-                <text onClick={toggleMenu}>
-                  <StyleSpan>Configurações</StyleSpan>
-                </text>
-                <text onClick={handleLogout}>
-                  <StyleSpan>Logout</StyleSpan>
-                </text>
+                <StyleButton onClick={toggleMenu}>
+                  <Avatar alt="Avatar" src={`${Avat}`} />
+                </StyleButton>
               </>
             }
             {isMenuOpen && (
               <ul ref={navRef} style={{ position: 'absolute' }}>
-                {isUserLoggedIn ? (
+                {isLoggedIn ? (
                   <>
                     <li>
                       <StyleLink href="/">Perfil</StyleLink>
@@ -107,7 +102,7 @@ function NavBar({ isUserLoggedIn }: { isUserLoggedIn: boolean }) {
                       <StyleLink href="/">Configurações</StyleLink>
                     </li>
                     <li>
-                      <StyleLink href="/">Sair</StyleLink>
+                      <StyleLink onClick={handleLogout} href="/">Sair</StyleLink>
                     </li>
                   </>
                 ) : (
@@ -123,3 +118,7 @@ function NavBar({ isUserLoggedIn }: { isUserLoggedIn: boolean }) {
 }
 
 export default NavBar;
+function setIsLoggedIn(arg0: boolean) {
+  throw new Error('Function not implemented.');
+}
+
