@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import Modal from "react-modal";
-
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import useCalendarModal from "../../hooks/useCalendarModal";
 
 const localizer = momentLocalizer(moment);
 
@@ -32,13 +32,7 @@ const events = [
 ];
 
 const CalendarComponent = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [event, setEvent] = useState({});
-
-  const handleEventClick = (event: React.SetStateAction<{}>) => {
-    setEvent(event);
-    setModalIsOpen(true);
-  };
+  const { modalIsOpen, event, handleEventClick, closeModal } = useCalendarModal();
 
   return (
     <div>
@@ -51,7 +45,7 @@ const CalendarComponent = () => {
         selectable={true}
         onSelectEvent={handleEventClick}
       />
-      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         <h2>{event.title}</h2>
         <p>{event.note}</p>
         <p>Alarme: {event.alarm}</p>
